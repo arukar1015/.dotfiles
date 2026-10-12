@@ -5,8 +5,6 @@
 { config, pkgs, inputs, ... }:
 
 let
-  secrets = import ./wifi_secret.nix;
-
   # Meltype (Linux プレビュー版 / IBus エンジン)
   meltype = pkgs.callPackage ./meltype.nix { };
 
@@ -143,7 +141,7 @@ in
   users.users.touma = {
     isNormalUser = true;
     description = "touma";
-    hashedPassword = secrets.hashedPassword;
+    hashedPasswordFile = "/etc/nixos/secrets/touma-password";
     extraGroups = [
       "networkmanager"
       "wheel"
