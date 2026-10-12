@@ -1,0 +1,4 @@
+.ssh/
+wifi_secret.nix
+cert/
+result
